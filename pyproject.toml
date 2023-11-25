@@ -1,0 +1,33 @@
+[tool.pyright]
+include = ["api_practice"]
+venv = "api-practice-py3.11"
+venvPath = "/home/ondest/.cache/pypoetry/virtualenvs/api-practice-r_6Zw1fz-py3.11/bin/python"
+
+[tool.poetry] 
+name = "api-practice"
+version = "0.1.0"
+description = ""
+authors = ["Danil <spbondest@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.104.1"
+uvicorn = "^0.24.0.post1"
+sqlalchemy = "^2.0.23"
+asyncpg = "^0.29.0"
+alembic = "^1.12.1"
+python-decouple = "^3.8"
+passlib = "^1.7.4"
+pydantic = {extras = ["email"], version = "^2.5.2"}
+python-jose = "^3.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+project = "api_practice.main:main"
+
+
