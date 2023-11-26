@@ -9,6 +9,11 @@ class BookingException(HTTPException):
         super().__init__(status_code=self.status_code, detail=self.detail)
 
 
+class BookingIsNotExistsException(BookingException):
+    status_code = status.HTTP_409_CONFLICT
+    detail = "Invalid booking"
+
+
 class UserAlreadyExistsException(BookingException):
     status_code = status.HTTP_409_CONFLICT
     detail = "User already exists"

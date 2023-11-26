@@ -2,8 +2,10 @@ from datetime import date
 
 from api_practice.dao.base import BaseDAO
 from api_practice.db import async_session_maker
+
+from api_practice.exceptions import BookingIsNotExistsException
 from api_practice.hotels.rooms.models import Rooms
-from sqlalchemy import func, insert, select
+from sqlalchemy import delete, func, insert, select
 
 from .models import Bookings
 
@@ -53,3 +55,14 @@ class BookingDAO(BaseDAO):
                 new_booking = await session.execute(add_booking)
                 await session.commit()
                 return new_booking.scalar()
+
+    @classmethod
+    async def delete_booking(cls, user_id: int, bookings_id: int):
+        booking = await cls.find_one_or_none(id=bookings_id)
+
+        if not booking or booking.users_id != user_id:
+            raise BookingIsNotExistsException()
+        async with async_session_maker() as session:
+            query = delete(cls.model).where(cls.model.id == booking.id)
+            await session.execute(query)
+            await session.commit()

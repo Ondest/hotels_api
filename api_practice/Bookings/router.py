@@ -33,3 +33,10 @@ async def add_booking(
     if not result:
         raise CantAddBookingException()
     return result
+
+
+@router.delete("/{booking_id}")
+async def delete_booking(
+    booking_id: int, user: Users = Depends(get_current_user)
+) -> None:
+    await BookingDAO.delete_booking(bookings_id=booking_id, user_id=user.id)

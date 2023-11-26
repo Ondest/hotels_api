@@ -28,3 +28,8 @@ async def common_parameters(
 async def get_hotels(commons: Annotated[dict, Depends(common_parameters)]):
     hotels = await HotelsDAO.find_all(**commons)
     return hotels
+
+
+@router.get("/{hotel_id}")
+async def get_hotel(hotel_id: int):
+    return await HotelsDAO.find_by_id(hotel_id)
