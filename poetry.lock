@@ -561,6 +561,23 @@ files = [
 typing-extensions = ">=4.6.0,<4.7.0 || >4.7.0"
 
 [[package]]
+name = "pydantic-extra-types"
+version = "2.1.0"
+description = "Extra Pydantic types."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "pydantic_extra_types-2.1.0-py3-none-any.whl", hash = "sha256:1b8aa83a2986b0bc6a7179834fdb423c5e0bcef6b2b4cd9261bf753ad7dcc483"},
+    {file = "pydantic_extra_types-2.1.0.tar.gz", hash = "sha256:d07b869e733d33712b07d6b8cd7b0223077c23ae5a1e23bd0699a00401259ec7"},
+]
+
+[package.dependencies]
+pydantic = ">=2.0.3"
+
+[package.extras]
+all = ["phonenumbers (>=8,<9)", "pycountry (>=22,<23)"]
+
+[[package]]
 name = "python-decouple"
 version = "3.8"
 description = "Strict separation of settings from code."
@@ -764,4 +781,4 @@ standard = ["colorama (>=0.4)", "httptools (>=0.5.0)", "python-dotenv (>=0.13)",
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "c6507054c80a19dcd5fb040c092df14ae60a7213b42c52a73df8a5006cbda195"
+content-hash = "6062b7c8fb10aa0b52bef63d5ef56f4a8ba89beceef6d8833a24e1da10e1b37f"

@@ -21,6 +21,7 @@ python-decouple = "^3.8"
 passlib = "^1.7.4"
 pydantic = {extras = ["email"], version = "^2.5.2"}
 python-jose = "^3.3.0"
+pydantic-extra-types = "^2.1.0"
 
 
 [build-system]

@@ -36,4 +36,9 @@ class UserIsntExistException(BookingException):
 
 class NoCookieException(BookingException):
     status_code = status.HTTP_401_UNAUTHORIZED
-    detatil = "Incorrect cookie"
+    detail = "Incorrect cookie"
+
+
+class CantAddBookingException(BookingException):
+    status_code = status.HTTP_409_CONFLICT
+    detail = "Booking cannot be added"

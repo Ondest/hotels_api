@@ -1,4 +1,5 @@
 from datetime import date
+
 from pydantic import BaseModel
 
 
@@ -11,4 +12,4 @@ class SBooking(BaseModel):
     price: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True

@@ -1,5 +1,5 @@
 from api_practice.db import Base
-from sqlalchemy import Column, Integer, String, JSON, ForeignKey
+from sqlalchemy import Column, ForeignKey, Integer, JSON, String
 
 
 class Rooms(Base):
