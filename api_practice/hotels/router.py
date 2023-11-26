@@ -6,7 +6,10 @@ from api_practice.hotels.dao import HotelsDAO
 from fastapi import APIRouter, Depends, Query
 
 
-router = APIRouter(prefix="/hotels", tags=["Hotels"])
+router = APIRouter(
+    prefix="/hotels",
+    tags=["Hotels"],
+)
 
 
 async def common_parameters(
