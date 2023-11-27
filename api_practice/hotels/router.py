@@ -15,7 +15,7 @@ router = APIRouter(
 async def common_parameters(
     date_from: date,
     date_to: date,
-    location: Annotated[str, Query(max_length=30)],
+    location: str = Query(None, max_length=30),
 ):
     return {
         "location": location,
