@@ -1,9 +1,15 @@
-from datetime import date
+import asyncio
 from typing import Annotated
 
 from api_practice.hotels.dao import HotelsDAO
+from api_practice.hotels.dependencies import common_parameters
 
-from fastapi import APIRouter, Depends, Query
+from api_practice.hotels.schemas import HotelInfo
+
+from fastapi import APIRouter, Depends
+from fastapi_cache.decorator import cache
+
+from pydantic import parse_obj_as
 
 
 router = APIRouter(
@@ -12,22 +18,13 @@ router = APIRouter(
 )
 
 
-async def common_parameters(
-    date_from: date,
-    date_to: date,
-    location: str = Query(None, max_length=30),
-):
-    return {
-        "location": location,
-        "date_from": date_from,
-        "date_to": date_to,
-    }
-
-
 @router.get("")
+@cache(expire=30)
 async def get_hotels(commons: Annotated[dict, Depends(common_parameters)]):
+    await asyncio.sleep(4)
     hotels = await HotelsDAO.find_all(**commons)
-    return hotels
+    hotels_json = parse_obj_as(list[HotelInfo], hotels)
+    return hotels_json
 
 
 @router.get("/{hotel_id}")
