@@ -1,5 +1,5 @@
 from api_practice.db import async_session_maker
-from sqlalchemy import select, insert
+from sqlalchemy import insert, select
 
 
 class BaseDAO:

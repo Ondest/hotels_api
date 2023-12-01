@@ -47,4 +47,4 @@ class HotelsDAO(BaseDAO):
 
             result = await session.execute(query)
             print(free_rooms_query.compile(engine))
-            return result.all()
+            return result.mappings().all()
