@@ -1,7 +1,7 @@
 from typing import Annotated
 
 from api_practice.hotels.dao import HotelsDAO
-from api_practice.hotels.dependencies import common_parameters
+from api_practice.hotels.dependencies import hotels_router_args
 
 from api_practice.hotels.schemas import Hotel, HotelInfo
 
@@ -18,7 +18,7 @@ router = APIRouter(
 @router.get("")
 @cache(expire=30)
 async def get_hotels(
-    commons: Annotated[dict, Depends(common_parameters)]
+    commons: Annotated[dict, Depends(hotels_router_args)]
 ) -> list[HotelInfo]:
     hotels = await HotelsDAO.find_all(**commons)
     return hotels

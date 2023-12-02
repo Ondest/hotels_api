@@ -3,7 +3,7 @@ from datetime import date
 from fastapi import Query
 
 
-async def common_parameters(
+async def hotels_router_args(
     date_from: date,
     date_to: date,
     location: str = Query(None, max_length=30),

@@ -1,9 +1,10 @@
 from datetime import datetime, timedelta
+
+from api_practice.Users.dao import UsersDAO
+from decouple import config
 from jose import jwt
 from passlib.context import CryptContext
-from api_practice.Users.dao import UsersDAO
 from pydantic import EmailStr
-from decouple import config
 
 SECRET_KEY = config("SECRET_KEY")
 ALGO = config("ALGO")
@@ -30,6 +31,9 @@ def create_access_token(data: dict):
 
 async def authenticate_user(email: EmailStr, password: str):
     user = await UsersDAO.find_one_or_none(email=email)
-    if not user and not vetify_password(password, user.password):
+    if not user:
+        return None
+    print(user.__dict__)
+    if not vetify_password(password, user.hashed_password):
         return None
     return user

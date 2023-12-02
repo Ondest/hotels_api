@@ -12,18 +12,6 @@ class HotelInfo(BaseModel):
 
 
 class Hotel(BaseModel):
-    """{
-      "rooms_quantity": 20,
-      "name": "Cosmos Collection Altay Resort",
-      "location": "Республика Алтай, Майминский район, село Урлу-Аспак, Лесхозная улица, 20",
-      "image_id": 1,
-      "services": [
-        "Wi-Fi",
-        "Parking"
-      ],
-      "id": 1
-    }"""
-
     rooms_quantity: PositiveInt
     name: str
     location: str

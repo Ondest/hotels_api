@@ -2,7 +2,7 @@ from datetime import date
 
 from api_practice.Bookings.models import Bookings
 
-from api_practice.db import async_session_maker, engine
+from api_practice.db import async_session_maker
 from api_practice.hotels.models import Hotels
 from api_practice.hotels.rooms.models import Rooms
 from dao.base import BaseDAO
@@ -17,12 +17,6 @@ class HotelsDAO(BaseDAO):
     @classmethod
     async def find_all(cls, location: str, date_from=date, date_to=date):
         async with async_session_maker() as session:
-            free_rooms_query = select(1).filter(
-                Bookings.rooms_id == Rooms.id,
-                func.daterange(Bookings.date_from, Bookings.date_to, "[]").op("&&")(
-                    func.daterange(date_from, date_to, "[]"),
-                ),
-            )
             query = select(
                 Hotels.id,
                 Hotels.name,
@@ -46,5 +40,4 @@ class HotelsDAO(BaseDAO):
             ).filter(Hotels.location.ilike(f"%{location.lower()}%"))
 
             result = await session.execute(query)
-            print(free_rooms_query.compile(engine))
             return result.mappings().all()
