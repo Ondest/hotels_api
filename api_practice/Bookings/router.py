@@ -28,7 +28,7 @@ async def add_booking(
     date_to: date,
     date_from: date,
     user: Users = Depends(get_current_user),
-):
+) -> SBooking | None:
     result = await BookingDAO.add(user.id, rooms_id, date_to, date_from)
     if not result:
         raise CantAddBookingException()

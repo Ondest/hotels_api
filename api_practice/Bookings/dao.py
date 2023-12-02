@@ -38,7 +38,10 @@ class BookingDAO(BaseDAO):
 
         async with async_session_maker() as session:
             free_rooms = await session.execute(rooms_left)
-            if free_rooms.mappings().all()[0]["free"] > 0:
+            result = free_rooms.mappings().all()
+            if not result:
+                return None
+            if result[0]["free"] > 0:
                 get_price = select(Rooms.price).filter_by(id=rooms_id)
                 price = await session.execute(get_price)
                 add_booking = (
