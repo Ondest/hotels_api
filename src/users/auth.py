@@ -5,7 +5,7 @@ from jose import jwt
 from passlib.context import CryptContext
 from pydantic import EmailStr
 
-from src.Users.dao import UsersDAO
+from src.users.dao import UsersDAO
 
 SECRET_KEY = config("SECRET_KEY")
 ALGO = config("ALGO")

@@ -9,8 +9,8 @@ from src.exceptions import (
     TokenFormatException,
     UserIsntExistException,
 )
-from src.Users.auth import ALGO, SECRET_KEY
-from src.Users.dao import UsersDAO
+from src.users.auth import ALGO, SECRET_KEY
+from src.users.dao import UsersDAO
 
 
 def get_token(request: Request):

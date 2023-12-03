@@ -2,11 +2,11 @@ from datetime import date
 
 from fastapi import APIRouter, Depends
 
-from src.Bookings.schemas import SBooking
+from src.bookings.schemas import SBooking
 
 from src.exceptions import CantAddBookingException
-from src.Users.dependencies import get_current_user
-from src.Users.models import Users
+from src.users.dependencies import get_current_user
+from src.users.models import Users
 
 from .dao import BookingDAO
 

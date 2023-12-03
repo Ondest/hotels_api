@@ -5,11 +5,11 @@ from os.path import abspath, dirname
 from alembic import context
 
 from sqlalchemy import engine_from_config, pool
-from src.Bookings.models import Bookings
+from src.bookings.models import Bookings
 from src.db import Base, DATABASE_URL
 from src.hotels.models import Hotels
 from src.hotels.rooms.models import Rooms
-from src.Users.models import Users
+from src.users.models import Users
 
 sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 

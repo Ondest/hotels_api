@@ -5,7 +5,7 @@ from sqlalchemy import func, select
 
 from sqlalchemy.sql.functions import coalesce
 
-from src.Bookings.models import Bookings
+from src.bookings.models import Bookings
 from src.db import async_session_maker
 from src.hotels.models import Hotels
 from src.hotels.rooms.models import Rooms
