@@ -7,7 +7,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-src/static/images/*.webp
+src/static/images/
 .Python
 build/
 develop-eggs/
