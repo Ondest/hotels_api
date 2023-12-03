@@ -2,12 +2,15 @@ from shutil import copyfileobj
 
 from fastapi import APIRouter, File, UploadFile
 
+from src.tasks.tasks import picture_process
+
 
 router = APIRouter(prefix="/images", tags=["Images"])
 
 
 @router.post("/hotels")
 async def add_hotel_image(image_id: int, file: UploadFile = File(...)):
-    with open(f"src/static/{image_id}.webp", "wb+") as file_object:
+    image_path = f"src/static/images/{image_id}.webp"
+    with open(image_path, "wb+") as file_object:
         copyfileobj(file.file, file_object)
-    return {"status_code": 201}
+    picture_process.delay(image_path)

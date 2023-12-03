@@ -1,3 +1,4 @@
+import asyncio
 from typing import Annotated
 
 from fastapi import APIRouter, Depends
@@ -19,6 +20,7 @@ router = APIRouter(
 async def get_hotels(
     commons: Annotated[dict, Depends(hotels_router_args)]
 ) -> list[HotelInfo]:
+    await asyncio.sleep(2)
     hotels = await HotelsDAO.find_all(**commons)
     return hotels
 
