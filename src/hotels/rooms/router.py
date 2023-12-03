@@ -1,7 +1,8 @@
 from datetime import date
 
-from api_practice.hotels.rooms.dao import RoomsDAO
 from fastapi import APIRouter, Query
+
+from src.hotels.rooms.dao import RoomsDAO
 
 
 router = APIRouter(prefix="/hotels", tags=["Hotels"])

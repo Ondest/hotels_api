@@ -1,12 +1,11 @@
 from datetime import date
 
-from api_practice.Bookings.models import Bookings
-from api_practice.db import async_session_maker
-from api_practice.hotels.rooms.models import Rooms
 from dao.base import BaseDAO
-from sqlalchemy import DATE, func, select
+from sqlalchemy import func, select
 
-from sqlalchemy.sql.functions import coalesce
+from src.Bookings.models import Bookings
+from src.db import async_session_maker
+from src.hotels.rooms.models import Rooms
 
 
 class RoomsDAO(BaseDAO):

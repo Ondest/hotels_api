@@ -1,11 +1,11 @@
-from api_practice.hotels.router import get_hotels
 from fastapi import APIRouter, Depends, Request
 from fastapi.templating import Jinja2Templates
+from src.hotels.router import get_hotels
 
 
 router = APIRouter(prefix="/pages", tags=["Front"])
 
-templates = Jinja2Templates(directory="api_practice/templates")
+templates = Jinja2Templates(directory="src/templates")
 
 
 @router.get("/hotels")

@@ -1,11 +1,11 @@
 from datetime import date
 
-from api_practice.dao.base import BaseDAO
-from api_practice.db import async_session_maker
-
-from api_practice.exceptions import BookingIsNotExistsException
-from api_practice.hotels.rooms.models import Rooms
 from sqlalchemy import delete, func, insert, select
+
+from src.dao.base import BaseDAO
+from src.db import async_session_maker
+from src.exceptions import BookingIsNotExistsException
+from src.hotels.rooms.models import Rooms
 
 from .models import Bookings
 

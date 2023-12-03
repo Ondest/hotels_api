@@ -1,8 +1,3 @@
-[tool.pyright]
-include = ["api_practice"]
-venv = "api-practice-py3.11"
-venvPath = "/home/ondest/.cache/pypoetry/virtualenvs/api-practice-r_6Zw1fz-py3.11/bin/python"
-
 [tool.poetry] 
 name = "api-practice"
 version = "0.1.0"
@@ -30,8 +25,4 @@ fastapi-cache2 = {extras = ["redis"], version = "^0.2.1"}
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.scripts]
-project = "api_practice.main:main"
-
 

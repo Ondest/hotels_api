@@ -1,12 +1,11 @@
 from typing import Annotated
 
-from api_practice.hotels.dao import HotelsDAO
-from api_practice.hotels.dependencies import hotels_router_args
-
-from api_practice.hotels.schemas import Hotel, HotelInfo
-
 from fastapi import APIRouter, Depends
 from fastapi_cache.decorator import cache
+
+from src.hotels.dao import HotelsDAO
+from src.hotels.dependencies import hotels_router_args
+from src.hotels.schemas import Hotel, HotelInfo
 
 
 router = APIRouter(

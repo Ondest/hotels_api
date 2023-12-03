@@ -1,11 +1,12 @@
 from datetime import date
 
-from api_practice.Bookings.schemas import SBooking
-
-from api_practice.exceptions import CantAddBookingException
-from api_practice.Users.dependencies import get_current_user
-from api_practice.Users.models import Users
 from fastapi import APIRouter, Depends
+
+from src.Bookings.schemas import SBooking
+
+from src.exceptions import CantAddBookingException
+from src.Users.dependencies import get_current_user
+from src.Users.models import Users
 
 from .dao import BookingDAO
 

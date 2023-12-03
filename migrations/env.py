@@ -3,13 +3,13 @@ from logging.config import fileConfig
 from os.path import abspath, dirname
 
 from alembic import context
-from api_practice.Bookings.models import Bookings
-from api_practice.db import Base, DATABASE_URL
-from api_practice.hotels.models import Hotels
-from api_practice.hotels.rooms.models import Rooms
-from api_practice.Users.models import Users
 
 from sqlalchemy import engine_from_config, pool
+from src.Bookings.models import Bookings
+from src.db import Base, DATABASE_URL
+from src.hotels.models import Hotels
+from src.hotels.rooms.models import Rooms
+from src.Users.models import Users
 
 sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 

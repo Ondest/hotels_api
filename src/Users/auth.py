@@ -1,10 +1,11 @@
 from datetime import datetime, timedelta
 
-from api_practice.Users.dao import UsersDAO
 from decouple import config
 from jose import jwt
 from passlib.context import CryptContext
 from pydantic import EmailStr
+
+from src.Users.dao import UsersDAO
 
 SECRET_KEY = config("SECRET_KEY")
 ALGO = config("ALGO")

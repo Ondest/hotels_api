@@ -1,15 +1,16 @@
 from datetime import datetime
 
-from api_practice.exceptions import (
+from fastapi import Depends, Request
+from jose import jwt, JWTError
+
+from src.exceptions import (
     NoCookieException,
     TokenExpiredException,
     TokenFormatException,
     UserIsntExistException,
 )
-from api_practice.Users.auth import ALGO, SECRET_KEY
-from api_practice.Users.dao import UsersDAO
-from fastapi import Depends, Request
-from jose import jwt, JWTError
+from src.Users.auth import ALGO, SECRET_KEY
+from src.Users.dao import UsersDAO
 
 
 def get_token(request: Request):

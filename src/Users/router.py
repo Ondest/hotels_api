@@ -1,15 +1,8 @@
-from api_practice.exceptions import (
-    InvalidEmailOrPasswordException,
-    UserAlreadyExistsException,
-)
-from api_practice.Users.auth import (
-    authenticate_user,
-    create_access_token,
-    get_password_hash,
-)
-from api_practice.Users.dao import UsersDAO
-from api_practice.Users.schemas import SUserAuth
 from fastapi import APIRouter, Response
+from src.exceptions import InvalidEmailOrPasswordException, UserAlreadyExistsException
+from src.Users.auth import authenticate_user, create_access_token, get_password_hash
+from src.Users.dao import UsersDAO
+from src.Users.schemas import SUserAuth
 
 router = APIRouter(
     prefix="/auth",

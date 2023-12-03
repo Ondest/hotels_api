@@ -1,5 +1,5 @@
-from api_practice.db import Base
-from sqlalchemy import Column, Integer, ForeignKey, Date
+from sqlalchemy import Column, Date, ForeignKey, Integer
+from src.db import Base
 
 
 class Bookings(Base):
